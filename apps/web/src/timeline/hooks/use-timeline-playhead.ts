@@ -102,7 +102,7 @@ export function useTimelinePlayhead({
 			) as MediaTime;
 
 			const shouldSnap = snappingEnabled && !isShiftHeldRef.current;
-			const time = (() => {
+			const time = ((() => {
 				if (!shouldSnap) return frameTime;
 				const tracks = editor.scenes.getActiveScene().tracks;
 				const bookmarks = editor.scenes.getActiveScene()?.bookmarks ?? [];
@@ -119,7 +119,7 @@ export function useTimelinePlayhead({
 					maxSnapDistance: getTimelineSnapThresholdInTicks({ zoomLevel }),
 				});
 				return snapResult.snapPoint ? snapResult.snappedTime : frameTime;
-			})();
+			})() ?? frameTime) as MediaTime;
 
 			scrubTimeRef.current = time;
 			seek({ time });
