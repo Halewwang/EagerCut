@@ -260,7 +260,7 @@ export function useKeyframeDrag({
 			event: ReactMouseEvent;
 			keyframes: SelectedKeyframeRef[];
 			orderedKeyframes: SelectedKeyframeRef[];
-			indicatorTime: MediaTime;
+			indicatorTime: number;
 		}) => {
 			event.stopPropagation();
 
