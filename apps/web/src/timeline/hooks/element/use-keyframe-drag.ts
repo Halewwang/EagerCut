@@ -275,7 +275,7 @@ export function useKeyframeDrag({
 			const duration = editor.timeline.getTotalDuration();
 			const absoluteIndicatorTime = addMediaTime({
 				a: displayedStartTime,
-				b: indicatorTime,
+				b: indicatorTime as MediaTime,
 			});
 			const seekTime = (
 				snappedSeekTime({
