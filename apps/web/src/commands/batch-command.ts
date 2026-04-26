@@ -5,7 +5,7 @@ export class BatchCommand extends Command {
 		super();
 	}
 
-	execute(): CommandResult | undefined {
+	execute(): CommandResult | void {
 		let latestSelectionResult: CommandResult | undefined;
 
 		for (const command of this.commands) {
@@ -24,7 +24,7 @@ export class BatchCommand extends Command {
 		}
 	}
 
-	redo(): CommandResult | undefined {
+	redo(): CommandResult | void {
 		let latestSelectionResult: CommandResult | undefined;
 
 		for (const command of this.commands) {

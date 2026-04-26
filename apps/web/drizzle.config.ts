@@ -7,10 +7,9 @@ if (process.env.NODE_ENV === "production") {
 	dotenv.config({ path: ".env.local" });
 }
 
-const databaseUrl = process.env.DATABASE_URL;
-if (!databaseUrl) {
-	throw new Error("DATABASE_URL is not set");
-}
+const databaseUrl =
+	process.env.DATABASE_URL ??
+	"postgresql://opencut:opencut@localhost:5432/opencut";
 
 export default {
 	schema: "./src/lib/db/schema.ts",
